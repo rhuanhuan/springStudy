@@ -7,7 +7,7 @@ spring:
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource  #当前数据源操作类型
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/cloud2020?characterEncoding=utf8&useSSL=false&useUnicode=true&serverTimezone=UTC
+    url: jdbc:mysql://localhost:3307/cloud2020?characterEncoding=utf8&useSSL=false&useUnicode=true&serverTimezone=UTC
     username: root
     password:
 

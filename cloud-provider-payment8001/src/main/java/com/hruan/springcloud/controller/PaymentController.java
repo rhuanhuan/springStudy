@@ -19,7 +19,7 @@ public class PaymentController {
 
     @PostMapping(value="/payments")
     public CommonResult create(Payment payment) {
-        int result = paymentService.create(payment);
+        long result = paymentService.create(payment);
         log.info("**Insert Payment: " + result);
 
         if (result > 0) {
@@ -37,7 +37,7 @@ public class PaymentController {
         if (payment != null) {
             return new CommonResult(200, "Get Payment Success", payment);
         } else {
-            return new CommonResult(400, "Get Payment failed", null);
+            return new CommonResult(404, "Payment not found", null);
         }
     }
 }

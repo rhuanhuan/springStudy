@@ -9,7 +9,7 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>cloud-provider-payment8001</module>
-        <module>cloud-consumer-order80</module>
+        <module>cloud-consumer-order9999</module>
         <module>cloud-api-common</module>
     </modules>
     <packaging>pom</packaging>
@@ -34,6 +34,10 @@
     <!--子模块继承后,提供作用:锁定版本+子module不用groupId和version-->
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>com.hruan.springcloud</groupId>
+                <artifactId>cloud-api-common</artifactId>
+            </dependency>
             <!--springboot 2.2.2-->
             <dependency>
                 <groupId>org.springframework.boot</groupId>

@@ -8,3 +8,8 @@ Eureka注册中心篇:
 2. 添加payment作为集群，并注册到Eureka上; 
     - 添加服务id信息
     - enable discovery client
+
+Zookeeper & Consul 使用起来配置都十分类似，不过需要外部启动对应的服务。
+payment8004是一个使用zookeeper的demo，可以看到对应的配置。
+- Eureka主要考虑AP
+- Zookeeper和Consul主要考虑CP

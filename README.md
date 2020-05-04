@@ -30,3 +30,10 @@ Eureka Client自带Ribbon
 根据特定的算法从服务列表中选取一个要访问的服务。默认带有随机、轮询、故障少、响应快等等规则，可以去看源码里面对应IRule接口的实现类。
 
 自己实现IRule替换：（**不要放在SpringBoot App可以扫描到的地方**）
+
+[OpenFeign](https://spring.io/projects/spring-cloud-openfeign)
+Feign是一个声明式的web服务客户端，让编写web服务更加的容易，只需要添加一个接口并在接口上添加注解即可。
+通常而言，微服务间的服务调用使用RestTemplate。Feign在此基础上做了进一步封装，让调用微服务跟调用方法一样简单顺滑。(RPC框架)
+
+OpenFeign在Feign的基础上，支持了SpringMVC 的注解。可以解析@RequestMapping下的接口，动态代理的方式产生实现类。
+

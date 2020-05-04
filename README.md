@@ -14,6 +14,7 @@ payment8004是一个使用zookeeper的demo，可以看到对应的配置。
 - Eureka主要考虑AP
 - Zookeeper和Consul主要考虑CP
 
+
 [Ribbon](https://github.com/Netflix/ribbon):
 是什么？
 - 负载均衡的工具。主要功能是提供客户端的负载均衡算法和服务调用
@@ -26,4 +27,6 @@ Eureka Client自带Ribbon
 2. 根据用户指定的策略，从取到的服务列表中选择一个地址；
 
 核心组件IRule:  
-根据特定的算法从服务列表中选取一个要访问的服务
+根据特定的算法从服务列表中选取一个要访问的服务。默认带有随机、轮询、故障少、响应快等等规则，可以去看源码里面对应IRule接口的实现类。
+
+自己实现IRule替换：（**不要放在SpringBoot App可以扫描到的地方**）

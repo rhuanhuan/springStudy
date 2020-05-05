@@ -22,4 +22,9 @@ public class OrderController {
         CommonResult<Payment> payment = paymentFeignService.getPaymentById(id);
         return payment;
     }
+
+    @GetMapping(value="/consumers/test-timeout")
+    public String testTimeOut(){
+        return paymentFeignService.testTimeOut();
+    }
 }

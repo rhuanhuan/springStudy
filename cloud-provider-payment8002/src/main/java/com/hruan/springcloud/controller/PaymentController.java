@@ -63,4 +63,14 @@ public class PaymentController {
 
         return this.discoveryClient;
     }
+
+    @GetMapping(value="/test-timeout")
+    public String testTimeOut(){
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return "sleep 5s";
+    }
 }

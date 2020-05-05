@@ -36,4 +36,5 @@ Feign是一个声明式的web服务客户端，让编写web服务更加的容易
 通常而言，微服务间的服务调用使用RestTemplate。Feign在此基础上做了进一步封装，让调用微服务跟调用方法一样简单顺滑。(RPC框架)
 
 OpenFeign在Feign的基础上，支持了SpringMVC 的注解。可以解析@RequestMapping下的接口，动态代理的方式产生实现类。
-
+Tips:
+1. Feign默认的超时时间是1s, 如果需要处理的话，需要添加额外的配置;

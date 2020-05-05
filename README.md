@@ -43,3 +43,12 @@ Tips:
     - BASIC: 仅记录请求方法、URL、响应状态码以及执行时间
     - HEADERS: BASIC + req/res header信息
     - FULL: 全纪录
+
+[Hystrix](https://github.com/Netflix/Hystrix)
+Latency and Fault Tolerance for Distributed Systems
+服务调用的问题有两种:
+1. 延迟
+2. 错误
+解决的方向有两个:
+1. 服务端
+2. 客户端

@@ -38,3 +38,8 @@ Feign是一个声明式的web服务客户端，让编写web服务更加的容易
 OpenFeign在Feign的基础上，支持了SpringMVC 的注解。可以解析@RequestMapping下的接口，动态代理的方式产生实现类。
 Tips:
 1. Feign默认的超时时间是1s, 如果需要处理的话，需要添加额外的配置;
+2. Feign的日志级别:
+    - None: 默认，不记录日志
+    - BASIC: 仅记录请求方法、URL、响应状态码以及执行时间
+    - HEADERS: BASIC + req/res header信息
+    - FULL: 全纪录

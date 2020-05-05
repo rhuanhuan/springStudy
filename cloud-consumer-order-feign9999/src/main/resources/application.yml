@@ -22,10 +22,14 @@ feign:
         connectTimeout: 1000
         readTimeout: 6000
 
+
 # 因为Feign本质上是通过Ribbon来发出请求，因此超时时间也可以通过ribbon来设置，与上面等价
 #ribbon:
 ##  读取资源的超时时间
 #  ReadTimeout: 6000
 ##  建立连接的超时时间
 #  ConnectionTimeout: 1000
-
+logging:
+  level:
+#    feign 日志在哪个接口，什么级别
+    com.hruan.springcloud.service.PaymentFeignService: info

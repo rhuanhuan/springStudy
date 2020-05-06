@@ -13,13 +13,13 @@ public class PaymentService {
     }
 
     @HystrixCommand(fallbackMethod = "paymentInfoTimeOutHandler", commandProperties = {
-            @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "3000")
+            @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "4000")
     })
     public String paymentInfoTimeOut(Integer id){
-        int timeout = 5;
+        int timeout = 3;
         try { TimeUnit.SECONDS.sleep(timeout); } catch (InterruptedException e) { e.printStackTrace();}
 
-        return "Thread Pool: " + Thread.currentThread().getName() + ". paymentInfoTimeOut, id: " + id;
+        return "No timeout!!! Thread Pool: " + Thread.currentThread().getName() + ". paymentInfoTimeOut, id: " + id;
     }
 
     public String paymentInfoTimeOutHandler(Integer id){

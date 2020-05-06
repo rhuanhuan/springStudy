@@ -16,17 +16,24 @@ public class OrderController {
     private PaymentFeignService paymentFeignService;
 
     @GetMapping("/consumers/payments/{id}/ok")
-    public String getPaymentOK(@PathVariable("id") Long id) {
+    public String getPaymentOK(@PathVariable("id") Integer id) {
         String result = paymentFeignService.getPaymentOK(id);
         log.info(result);
         return result;
     }
 
     @GetMapping("/consumers/payments/{id}/timeout")
-    public String getPaymentTimeout(@PathVariable("id") Long id) {
+//    @HystrixCommand(fallbackMethod = "paymentInfoFallBack", commandProperties = {
+//            @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "6000")
+//    })
+    public String getPaymentTimeout(@PathVariable("id") Integer id) {
         String result = paymentFeignService.getPaymentTimeOut(id);
         log.info(result);
 
         return result;
+    }
+
+    public String paymentInfoFallBack(@PathVariable("id") Integer id) {
+        return "I am Order. Payment Busy, please try it again later. >>> Thread Pool: " + Thread.currentThread().getName() + ". paymentInfoFallBack, id: " + id;
     }
 }

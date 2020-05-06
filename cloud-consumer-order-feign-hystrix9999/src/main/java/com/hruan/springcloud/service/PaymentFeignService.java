@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 public interface PaymentFeignService {
 
     @GetMapping(value="/payments/{id}/ok")
-    String getPaymentOK(@PathVariable("id") Long id);
+    String getPaymentOK(@PathVariable("id") Integer id);
 
     @GetMapping(value="/payments/{id}/timeout")
-    String getPaymentTimeOut(@PathVariable("id") Long id);
+    String getPaymentTimeOut(@PathVariable("id") Integer id);
 }

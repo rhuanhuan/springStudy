@@ -19,9 +19,10 @@ feign:
   client:
     config:
       default:           #服务名，填写default为所有服务
-        connectTimeout: 1000
+        connectTimeout: 6000
         readTimeout: 6000
-
+  hystrix:
+    enabled: true
 
 # 因为Feign本质上是通过Ribbon来发出请求，因此超时时间也可以通过ribbon来设置，与上面等价
 #ribbon:

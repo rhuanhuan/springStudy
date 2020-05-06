@@ -1,8 +1,8 @@
 package com.hruan.springcloud.controller;
 
 import com.hruan.springcloud.service.PaymentFeignService;
+import com.netflix.hystrix.contrib.javanica.annotation.DefaultProperties;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
-import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,6 +12,7 @@ import javax.annotation.Resource;
 
 @RestController
 @Slf4j
+@DefaultProperties(defaultFallback = "paymentGlobalFallBack")
 public class OrderController {
 
     @Resource
@@ -25,9 +26,10 @@ public class OrderController {
     }
 
     @GetMapping("/consumers/payments/{id}/timeout")
-    @HystrixCommand(fallbackMethod = "paymentInfoFallBack", commandProperties = {
-            @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "6000")
-    })
+//    @HystrixCommand(fallbackMethod = "paymentInfoFallBack", commandProperties = {
+//            @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "6000")
+//    })
+    @HystrixCommand
     public String getPaymentTimeout(@PathVariable("id") Integer id) {
         String result = paymentFeignService.getPaymentTimeOut(id);
         log.info(result);
@@ -37,5 +39,9 @@ public class OrderController {
 
     public String paymentInfoFallBack(@PathVariable("id") Integer id) {
         return "I am Order. Payment Busy, please try it again later. >>> Thread Pool: " + Thread.currentThread().getName() + ". paymentInfoFallBack, id: " + id;
+    }
+
+    public String paymentGlobalFallBack() {
+        return "Order Busy, please try it again later";
     }
 }

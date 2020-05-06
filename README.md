@@ -45,10 +45,13 @@ Tips:
     - FULL: 全纪录
 
 [Hystrix](https://github.com/Netflix/Hystrix)
-Latency and Fault Tolerance for Distributed Systems
+Latency and Fault Tolerance for Distributed Systems. 避免系统的级联故障，提高分布式系统的弹性。
+服务出现问题时候，给调用者返回一个符合预期的、可处理的备选响应（FallBack），而不是长时间的等待或者抛出调用方无法处理的异常。
+
 服务调用的问题有两种:
 1. 延迟
 2. 错误
+
 解决的方向有两个:
 1. 服务端
 2. 客户端

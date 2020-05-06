@@ -1,6 +1,8 @@
 package com.hruan.springcloud.controller;
 
 import com.hruan.springcloud.service.PaymentFeignService;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -23,9 +25,9 @@ public class OrderController {
     }
 
     @GetMapping("/consumers/payments/{id}/timeout")
-//    @HystrixCommand(fallbackMethod = "paymentInfoFallBack", commandProperties = {
-//            @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "6000")
-//    })
+    @HystrixCommand(fallbackMethod = "paymentInfoFallBack", commandProperties = {
+            @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "6000")
+    })
     public String getPaymentTimeout(@PathVariable("id") Integer id) {
         String result = paymentFeignService.getPaymentTimeOut(id);
         log.info(result);

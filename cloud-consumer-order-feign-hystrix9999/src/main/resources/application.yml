@@ -16,20 +16,16 @@ eureka:
     prefer-ip-address: true
 
 feign:
-  client:
-    config:
-      default:           #服务名，填写default为所有服务
-        connectTimeout: 6000
-        readTimeout: 6000
   hystrix:
     enabled: true
 
 # 因为Feign本质上是通过Ribbon来发出请求，因此超时时间也可以通过ribbon来设置，与上面等价
-#ribbon:
-##  读取资源的超时时间
-#  ReadTimeout: 6000
-##  建立连接的超时时间
-#  ConnectionTimeout: 1000
+ribbon:
+#  读取资源的超时时间
+  ReadTimeout: 6000
+#  建立连接的超时时间
+  ConnectionTimeout: 1000
+
 logging:
   level:
 #    feign 日志在哪个接口，什么级别

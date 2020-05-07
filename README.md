@@ -57,3 +57,7 @@ Latency and Fault Tolerance for Distributed Systems. 避免系统的级联故障
 1. 服务降级
 2. 服务熔断
 3. 服务限流
+
+hystrix dashboard
+dashboard启动后的地址: http://localhost:9001/hystrix
+9001监控8001，在dashboard上输入: http://localhost:8001/hystrix.stream

@@ -61,3 +61,5 @@ Latency and Fault Tolerance for Distributed Systems. 避免系统的级联故障
 hystrix dashboard
 dashboard启动后的地址: http://localhost:9001/hystrix
 9001监控8001，在dashboard上输入: http://localhost:8001/hystrix.stream
+
+[Gateway](https://cloud.spring.io/spring-cloud-static/spring-cloud-gateway/2.2.2.RELEASE/reference/html/) 服务网关

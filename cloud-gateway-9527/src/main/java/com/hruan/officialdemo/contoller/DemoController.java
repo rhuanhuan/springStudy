@@ -1,4 +1,4 @@
-package com.hruan.springcloud.contoller;
+package com.hruan.officialdemo.contoller;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

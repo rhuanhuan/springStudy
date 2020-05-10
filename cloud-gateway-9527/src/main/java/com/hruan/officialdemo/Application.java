@@ -1,4 +1,4 @@
-package com.hruan.springcloud;
+package com.hruan.officialdemo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -9,9 +9,9 @@ import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
 @EnableHystrix
-public class Gateway9527 {
+public class Application {
     public static void main(String[] args) {
-        SpringApplication.run(Gateway9527.class);
+        SpringApplication.run(Application.class);
     }
 
     @Bean
@@ -22,7 +22,7 @@ public class Gateway9527 {
                         .path("/get")
                         .filters(f -> f.addRequestHeader("Hello", "World"))
                         .uri("http://httpbin.org:80"))
-//                using the host predicate
+////                using the host predicate
                 .route(p -> p
                         .host("*.hystrix.com")
                         .filters(f -> f.hystrix(config -> config

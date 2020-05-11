@@ -8,20 +8,22 @@ import org.springframework.stereotype.Component;
 @Component
 public class GatewayConfig {
     @Bean
-    public RouteLocator myRoutes(RouteLocatorBuilder builder) {
+    public RouteLocator myRoutes(RouteLocatorBuilder builder, UriConfiguration uriConfiguration) {
+        String httpUri = uriConfiguration.getHttpbin();
+
         return builder.routes()
 //                using the path predicate
                 .route(p -> p
                         .path("/get")
                         .filters(f -> f.addRequestHeader("Hello", "World"))
-                        .uri("http://httpbin.org:80"))
+                        .uri(httpUri))
 ////                using the host predicate
                 .route(p -> p
                         .host("*.hystrix.com")
                         .filters(f -> f.hystrix(config -> config
                                 .setName("mycmd")
                                 .setFallbackUri("forward:/fallback")))
-                        .uri("http://httpbin.org:80"))
+                        .uri(httpUri))
                 .build();
     }
 }
